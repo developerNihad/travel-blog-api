@@ -45,6 +45,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://redesigned-parakeet-4jpw94rwxj25w7q-8000.app.github.dev',
     'https://redesigned-parakeet-4jpw94rwxj25w7q.github.dev',
     'https://redesigned-parakeet-4jpw94rwxj25w7q.preview.app.github.dev',
+    'https://localhost:8000'
 ]
 
 ALLOWED_HOSTS = [
