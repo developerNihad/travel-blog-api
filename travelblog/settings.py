@@ -41,6 +41,20 @@ INSTALLED_APPS = [
     "blog",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://redesigned-parakeet-4jpw94rwxj25w7q-8000.app.github.dev',
+    'https://redesigned-parakeet-4jpw94rwxj25w7q.github.dev',
+    'https://redesigned-parakeet-4jpw94rwxj25w7q.preview.app.github.dev',
+]
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'redesigned-parakeet-4jpw94rwxj25w7q-8000.app.github.dev',
+    'redesigned-parakeet-4jpw94rwxj25w7q.github.dev',
+    'redesigned-parakeet-4jpw94rwxj25w7q.preview.app.github.dev',
+]
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
