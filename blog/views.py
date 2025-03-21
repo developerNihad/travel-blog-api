@@ -1,10 +1,23 @@
+from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import generics
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
+from django.contrib.auth.models import User
+from .serializers import UserSerializer
+from rest_framework.permissions import IsAuthenticated
+
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    pass
 
 class PostListCreateView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
@@ -13,6 +26,7 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
 class CommentsListCreateView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
 
     def craete(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
